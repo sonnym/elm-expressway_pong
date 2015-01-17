@@ -5,7 +5,7 @@
   "author": "Sonny Michaud <michaud.sonny@gmail.com> (https://github.com/sonnym)",
 
   "scripts": {
-    "start": "node index.js"
+    "start": "./node_modules/.bin/gulp"
   },
 
   "repository": {
