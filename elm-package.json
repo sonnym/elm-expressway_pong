@@ -1,0 +1,13 @@
+{
+    "version": "0.0.1",
+    "summary": "Multiplayer pong hosted via NodeJS",
+    "repository": "https://github.com/sonnym/pong.git",
+    "license": "MIT",
+    "source-directories": [
+        "."
+    ],
+    "exposed-modules": [],
+    "dependencies": {
+        "elm-lang/core": "1.1.0 <= v < 2.0.0"
+    }
+}
