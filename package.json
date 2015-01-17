@@ -4,7 +4,9 @@
   "description": "Multiplayer pong game leveraging the Elm language.",
   "author": "Sonny Michaud <michaud.sonny@gmail.com> (https://github.com/sonnym)",
 
-  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
 
   "repository": {
     "type": "git",
