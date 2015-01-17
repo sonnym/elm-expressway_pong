@@ -16,6 +16,8 @@
   "dependencies": {
     "express": "*",
 
+    "sockjs": "*",
+
     "gulp": "*",
     "gulp-express": "*"
   },
