@@ -10,7 +10,7 @@ gulp.task("server", function () {
     file: "server.js"
   });
 
-  gulp.watch("Pong.elm", function(_) {
+  gulp.watch("**/*.elm", function(_) {
     exec("elm-make Pong.elm --output public/pong.js");
   });
 });
