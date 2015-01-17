@@ -14,7 +14,10 @@
   },
 
   "dependencies": {
-    "express": "*"
+    "express": "*",
+
+    "gulp": "*",
+    "gulp-express": "*"
   },
 
   "license": "MIT",
