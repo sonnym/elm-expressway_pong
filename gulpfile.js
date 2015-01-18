@@ -11,7 +11,7 @@ gulp.task("server", function () {
   });
 
   gulp.watch("**/*.elm", function(_) {
-    exec("elm-make Pong.elm --output public/pong.js", function(err, stdout, stderr) {
+    exec("elm-make Pong/Client.elm --output public/pong.js", function(err, stdout, stderr) {
       if (err) {
         console.log(err);
       }

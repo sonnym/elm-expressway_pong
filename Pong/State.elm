@@ -1,26 +1,9 @@
 module Pong.State where
 
-import Keyboard
 import Signal
 import Time (..)
 
 import Pong.Model (..)
-
-delta =
-  Signal.map inSeconds (fps 35)
-
-input : Signal Input
-input =
-  Signal.sampleOn delta <|
-    Signal.map4 Input
-      Keyboard.space
-      (Signal.map .y Keyboard.wasd)
-      (Signal.map .y Keyboard.arrows)
-      delta
-
-gameState : Signal Game
-gameState =
-  Signal.foldp update defaultGame input
 
 update : Input -> Game -> Game
 update {space,dir1,dir2,delta} ({state,ball,player1,player2} as game) =
