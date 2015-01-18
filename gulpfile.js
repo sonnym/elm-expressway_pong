@@ -7,7 +7,7 @@ gulp.task("default", ["server"]);
 
 gulp.task("server", function () {
   server.run({
-    file: "server.js"
+    file: "lib/server.js"
   });
 
   gulp.watch("**/*.elm", function(_) {
