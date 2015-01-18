@@ -6,20 +6,15 @@ import Time (..)
 import Window
 
 import Pong.View (view)
-import Pong.Model (Input, Game, defaultGame)
-import Pong.State (update)
+import Pong.Model (Input, Game)
 
 main =
-  Signal.map2 view Window.dimensions gameState
+  Signal.map2 view Window.dimensions receiveGameState
 
-port receiveInput : Signal Input
+port receiveGameState : Signal Game
 
 port sendInput : Signal Input
 port sendInput = input
-
-gameState : Signal Game
-gameState =
-  Signal.foldp update defaultGame receiveInput
 
 delta =
   Signal.map inSeconds (fps 35)

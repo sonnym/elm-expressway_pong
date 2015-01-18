@@ -16,11 +16,10 @@
 
     socket.onopen = function() {
       pongClient = Elm.fullscreen(Elm.Pong.Client, {
-        receiveInput: {
-          space: false,
-          dir1: 0,
-          dir2: 0,
-          delta: 0.0
+        receiveGameState: {
+          ball: { x: 0, y: 0, vx: 0, vy: 0 },
+          player1: { x: 0, y: 0, vx: 0, vy: 0, score: 0 },
+          player2: { x: 0, y: 0, vx: 0, vy: 0, score: 0 }
         }
       });
 
@@ -36,7 +35,7 @@
         return;
       }
 
-      pongClient.ports.receiveInput.send(JSON.parse(e.data));
+      pongClient.ports.receiveGameState.send(JSON.parse(e.data));
     }
   </script>
 </html>
