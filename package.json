@@ -19,7 +19,9 @@
     "sockjs": "*",
 
     "gulp": "*",
-    "gulp-express": "*"
+    "gulp-express": "*",
+
+    "elm-loader": "*"
   },
 
   "license": "MIT",
