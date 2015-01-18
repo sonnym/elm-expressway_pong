@@ -14,7 +14,14 @@
     var socket = new SockJS("/socket");
 
     socket.onopen = function() {
-      Elm.fullscreen(Elm.Pong);
+      var pong = Elm.fullscreen(Elm.Pong);
+
+      pong.ports.sendInput.subscribe(function(input) {
+        socket.send(JSON.stringify(input));
+      });
     };
+
+    socket.onclose = function() { };
+    socket.onmessage = function(e) { };
   </script>
 </html>
