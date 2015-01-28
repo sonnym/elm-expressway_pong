@@ -14,15 +14,8 @@
   },
 
   "dependencies": {
-    "express": "*",
-
-    "sockjs": "*",
-
     "gulp": "*",
-    "gulp-elm": "*",
-    "gulp-express": "*",
-
-    "elm-loader": "*"
+    "elm-expressway": "*"
   },
 
   "license": "MIT",
