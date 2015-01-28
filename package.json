@@ -19,6 +19,7 @@
     "sockjs": "*",
 
     "gulp": "*",
+    "gulp-elm": "*",
     "gulp-express": "*",
 
     "elm-loader": "*"
