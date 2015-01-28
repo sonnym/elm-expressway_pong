@@ -8,13 +8,19 @@ import Window
 import Pong.View (view)
 import Pong.Model (Input, Game)
 
-main =
-  Signal.map2 view Window.dimensions receiveGameState
+import Pong.Decoder (decodeGameState)
 
-port receiveGameState : Signal Game
+import Text
+
+main = Signal.map2 view Window.dimensions gameState
+
+port receiveGameState : Signal String
 
 port sendInput : Signal Input
 port sendInput = input
+
+gameState : Signal Game
+gameState = Signal.map decodeGameState receiveGameState
 
 delta =
   Signal.map inSeconds (fps 35)
