@@ -1,5 +1,8 @@
 var path = require("path");
 
+var server = require("elm-expressway/lib/server");
+var socket = require("elm-expressway/lib/socket");
+
 var basePath = path.resolve(process.cwd());
 var filename = path.resolve(basePath, "Pong", "Server.elm");
 
@@ -18,9 +21,11 @@ var pongSocketConfig = {
   onConnection: onConnection
 };
 
-var socket = require("elm-expressway/lib/socket");
+var pongSocket = socket(pongSocketConfig);
 
-module.exports = socket(pongSocketConfig);
+pongSocket(server);
+
+server.listen(8000, "0.0.0.0");
 
 function onConnection(pongServer) {
   return function(connection) {
