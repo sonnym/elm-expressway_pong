@@ -5,6 +5,8 @@ import Time (..)
 (gameWidth,gameHeight) = (600,400)
 (halfWidth,halfHeight) = (300,200)
 
+type State = Play | Pause
+
 type alias Ball =
   { x:Float, y:Float, vx:Float, vy:Float }
 
@@ -12,7 +14,7 @@ type alias Player =
   { x:Float, y:Float, vx:Float, vy:Float, score:Int }
 
 type alias Game =
-  { ball:Ball, player1:Player, player2:Player }
+  { state:State, ball:Ball, player1:Player, player2:Player }
 
 
 player : Float -> Player
@@ -21,7 +23,8 @@ player x =
 
 defaultGame : Game
 defaultGame =
-  { ball    = { x=0, y=0, vx=200, vy=200 }
+  { state   = Pause
+  , ball    = { x=0, y=0, vx=200, vy=200 }
   , player1 = player (20-halfWidth)
   , player2 = player (halfWidth-20)
   }

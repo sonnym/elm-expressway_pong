@@ -8,7 +8,7 @@ import Text
 import Pong.Model (..)
 
 view : (Int,Int) -> Game -> Element
-view (w,h) {ball,player1,player2} =
+view (w,h) {state,ball,player1,player2} =
   let scores : Element
       scores = txt (Text.height 50) (toString player1.score ++ "  " ++ toString player2.score)
   in
@@ -24,7 +24,7 @@ view (w,h) {ball,player1,player2} =
             |> make player2
         , toForm scores
             |> move (0, gameHeight/2 - 40)
-        , toForm (txt identity msg)
+        , toForm (if state == Play then spacer 1 1 else txt identity msg)
             |> move (0, 40 - gameHeight/2)
         ]
 

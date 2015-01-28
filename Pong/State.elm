@@ -6,13 +6,23 @@ import Time (..)
 import Pong.Model (..)
 
 update : Input -> Game -> Game
-update {space,dir1,dir2,delta} ({ball,player1,player2} as game) =
+update {space,dir1,dir2,delta} ({state,ball,player1,player2} as game) =
   let score1 = if ball.x >  halfWidth then 1 else 0
       score2 = if ball.x < -halfWidth then 1 else 0
-      newBall = updateBall delta ball player1 player2
+
+      newState =
+        if  | space            -> Play
+            | score1 /= score2 -> Pause
+            | otherwise        -> state
+
+      newBall =
+        if state == Pause
+            then ball
+            else updateBall delta ball player1 player2
 
   in
       { game |
+          state <- newState,
           ball <- newBall,
           player1 <- updatePlayer delta dir1 score1 player1,
           player2 <- updatePlayer delta dir2 score2 player2
