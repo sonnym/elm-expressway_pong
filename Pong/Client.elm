@@ -10,8 +10,6 @@ import Pong.Model (Input, Game)
 
 import Pong.Decoder (decodeGameState)
 
-import Text
-
 main = Signal.map2 view Window.dimensions gameState
 
 port receiveGameState : Signal String
