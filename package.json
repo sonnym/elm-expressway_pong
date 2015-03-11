@@ -15,7 +15,7 @@
 
   "dependencies": {
     "gulp": "*",
-    "elm-expressway": "*"
+    "elm-expressway": "sonnym/elm-expressway"
   },
 
   "license": "MIT",
